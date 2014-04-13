@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cloudservices.brokerage.policy.utils.properties_utils;
+package cloudservices.brokerage.utils.properties_utils;
 
 import java.io.FileOutputStream;
 import java.io.IOException;

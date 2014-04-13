@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cloudservices.brokerage.policy.utils.formatters;
+package cloudservices.brokerage.utils.formatters;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
