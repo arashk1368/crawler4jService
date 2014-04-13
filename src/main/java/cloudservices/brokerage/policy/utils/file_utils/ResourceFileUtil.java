@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cloudservices.brokerage.policy.crawling_services.utils.file_utils;
+package cloudservices.brokerage.policy.utils.file_utils;
 
 import java.net.URL;
 

@@ -7,10 +7,10 @@ package cloudservices.brokerage.policy.crawling_services.crawler4jservice.servic
 import cloudservices.brokerage.policy.crawling_services.crawler4jservice.configuration.Crawler4jConfig;
 import cloudservices.brokerage.policy.crawling_services.crawler4jservice.crawler_logic.CrawlerController;
 import cloudservices.brokerage.policy.crawling_services.crawler4jservice.crawler_logic.repository.URLRepositoryService;
-import cloudservices.brokerage.policy.crawling_services.utils.file_utils.ResourceFileUtil;
-import cloudservices.brokerage.policy.crawling_services.utils.logging.LoggerSetup;
-import cloudservices.brokerage.policy.crawling_services.utils.properties_utils.PropertiesReader;
-import cloudservices.brokerage.policy.crawling_services.utils.properties_utils.PropertiesWriter;
+import cloudservices.brokerage.policy.utils.file_utils.ResourceFileUtil;
+import cloudservices.brokerage.policy.utils.logging.LoggerSetup;
+import cloudservices.brokerage.policy.utils.properties_utils.PropertiesReader;
+import cloudservices.brokerage.policy.utils.properties_utils.PropertiesWriter;
 import java.io.IOException;
 import java.util.Set;
 import java.util.logging.Level;

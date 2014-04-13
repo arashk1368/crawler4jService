@@ -2,10 +2,10 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cloudservices.brokerage.policy.crawling_services.utils.logging;
+package cloudservices.brokerage.policy.utils.logging;
 
-import cloudservices.brokerage.policy.crawling_services.utils.formatters.HTMLFormatter;
-import cloudservices.brokerage.policy.crawling_services.utils.properties_utils.PropertiesWriter;
+import cloudservices.brokerage.policy.utils.formatters.HTMLFormatter;
+import cloudservices.brokerage.policy.utils.properties_utils.PropertiesWriter;
 import java.io.IOException;
 import java.util.logging.FileHandler;
 import java.util.logging.Formatter;

@@ -2,7 +2,7 @@
  * To change this template, choose Tools | Templates
  * and open the template in the editor.
  */
-package cloudservices.brokerage.policy.crawling_services.utils.properties_utils;
+package cloudservices.brokerage.policy.utils.properties_utils;
 
 import cloudservices.brokerage.policy.crawling_services.crawler4jservice.configuration.Crawler4jConfig;
 import java.io.FileInputStream;
