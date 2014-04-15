@@ -4,13 +4,13 @@
  */
 package cloudservices.brokerage.policy.crawling_services.crawler4jservice.service;
 
+import cloudservices.brokerage.commons.utils.file_utils.ResourceFileUtil;
+import cloudservices.brokerage.commons.utils.logging.LoggerSetup;
+import cloudservices.brokerage.commons.utils.properties_utils.PropertiesWriter;
 import cloudservices.brokerage.policy.crawling_services.crawler4jservice.configuration.Crawler4jConfig;
 import cloudservices.brokerage.policy.crawling_services.crawler4jservice.crawler_logic.CrawlerController;
 import cloudservices.brokerage.policy.crawling_services.crawler4jservice.crawler_logic.repository.URLRepositoryService;
-import cloudservices.brokerage.utils.file_utils.ResourceFileUtil;
-import cloudservices.brokerage.utils.logging.LoggerSetup;
-import cloudservices.brokerage.utils.properties_utils.PropertiesReader;
-import cloudservices.brokerage.utils.properties_utils.PropertiesWriter;
+import cloudservices.brokerage.policy.crawling_services.crawler4jservice.utils.PropertiesReader;
 import java.io.IOException;
 import java.util.Set;
 import java.util.logging.Level;
@@ -82,7 +82,7 @@ public class crawler4jWS {
         PropertiesWriter.write(address, "crawlIntermediateStorage",
                 address.replaceAll("crawler4jconfig.properties", "crawler_data"));
         PropertiesWriter.write(address, "filters", filter);
-        
+
         LoggerSetup.setup(ResourceFileUtil.getResourcePath("log.txt"), ResourceFileUtil.getResourcePath("log.html"));
         LoggerSetup.log4jSetup(ResourceFileUtil.getResourcePath("log4j.properties"),
                 ResourceFileUtil.getResourcePath("crawler4j.log"));

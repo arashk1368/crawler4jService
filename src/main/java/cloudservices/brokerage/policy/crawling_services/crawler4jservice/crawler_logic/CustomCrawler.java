@@ -4,10 +4,10 @@
  */
 package cloudservices.brokerage.policy.crawling_services.crawler4jservice.crawler_logic;
 
+import cloudservices.brokerage.commons.utils.file_utils.ResourceFileUtil;
 import cloudservices.brokerage.policy.crawling_services.crawler4jservice.configuration.Crawler4jConfig;
 import cloudservices.brokerage.policy.crawling_services.crawler4jservice.crawler_logic.repository.URLRepositoryService;
-import cloudservices.brokerage.utils.file_utils.ResourceFileUtil;
-import cloudservices.brokerage.utils.properties_utils.PropertiesReader;
+import cloudservices.brokerage.policy.crawling_services.crawler4jservice.utils.PropertiesReader;
 import edu.uci.ics.crawler4j.crawler.Page;
 import edu.uci.ics.crawler4j.crawler.WebCrawler;
 import edu.uci.ics.crawler4j.url.WebURL;
