@@ -68,8 +68,8 @@ public class crawler4jWS {
     }
 
     @WebMethod(operationName = "filteredCrawl")
-    public Set<String> filteredCrawl(@WebParam(name = "seeds") Set<String> seeds,
-            @WebParam(name = "filter") String filter) throws IOException, Exception {
+    public Set<String> filteredCrawl(@WebParam(name = "seeds") Set<String> seeds) throws IOException, Exception {
+        String filter = ".*(\\.(css|js|bmp|gif|jpe?g|png|tiff?|mid|mp2|mp3|mp4|wav|avi|mov|mpeg|ram|m4v|pdf|rm|smil|wmv|swf|wma|zip|rar|gz))$";
         String domains = "";
         for (String seed : seeds) {
             domains += seed + ",";
