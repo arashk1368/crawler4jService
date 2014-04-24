@@ -36,6 +36,7 @@ public class crawler4jWS {
 
     @WebMethod(operationName = "crawl")
     public Set<String> crawl(@WebParam(name = "seeds") Set<String> seeds) throws IOException, Exception {
+        URLRepositoryService.getInstance().getRepository().clear();
         String domains = "";
         for (String seed : seeds) {
             domains += seed + ",";
@@ -69,6 +70,7 @@ public class crawler4jWS {
 
     @WebMethod(operationName = "filteredCrawl")
     public Set<String> filteredCrawl(@WebParam(name = "seeds") Set<String> seeds) throws IOException, Exception {
+        URLRepositoryService.getInstance().getRepository().clear();
         String filter = ".*(\\.(css|js|bmp|gif|jpe?g|png|tiff?|mid|mp2|mp3|mp4|wav|avi|mov|mpeg|ram|m4v|pdf|rm|smil|wmv|swf|wma|zip|rar|gz))$";
         String domains = "";
         for (String seed : seeds) {

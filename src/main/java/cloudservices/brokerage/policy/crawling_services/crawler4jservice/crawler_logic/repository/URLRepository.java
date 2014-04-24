@@ -27,4 +27,8 @@ public class URLRepository {
     public Set<String> getUrls() {
         return urls;
     }
+
+    public void clear() {
+        this.urls.clear();
+    }
 }
