@@ -35,7 +35,11 @@ public class CustomCrawler extends WebCrawler {
     public boolean shouldVisit(WebURL url) {
         String href = url.getURL().toLowerCase();
         String msg = "Try to Visit: " + url;
-        LOGGER.log(Level.FINER, msg);
+        LOGGER.log(Level.INFO, msg);
+
+        if (config.getFilters().pattern().compareTo(".") == 0) {
+            return true;
+        }
         if (config.isInDomainOnly()) {
             boolean inDomain = false;
             for (String domain : config.getCrawlDomains()) {
@@ -56,7 +60,7 @@ public class CustomCrawler extends WebCrawler {
     public void visit(Page page) {
         String url = page.getWebURL().getURL();
         String msg = "Visiting: " + url;
-        LOGGER.log(Level.FINE, msg);
+        LOGGER.log(Level.INFO, msg);
         URLRepositoryService.getInstance().getRepository().put(url);
     }
 }
