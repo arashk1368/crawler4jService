@@ -11,6 +11,7 @@ import cloudservices.brokerage.policy.crawling_services.crawler4jservice.configu
 import cloudservices.brokerage.policy.crawling_services.crawler4jservice.crawler_logic.CrawlerController;
 import cloudservices.brokerage.policy.crawling_services.crawler4jservice.crawler_logic.repository.URLRepositoryService;
 import cloudservices.brokerage.policy.crawling_services.crawler4jservice.utils.PropertiesReader;
+import cloudservices.brokerage.policy.crawling_services.crawler4jservice.utils.StringGenerator;
 import java.io.IOException;
 import java.util.Set;
 import java.util.logging.Level;
@@ -46,8 +47,9 @@ public class crawler4jWS {
         }
         String address = ResourceFileUtil.getResourcePath("crawler4jconfig.properties");
         PropertiesWriter.write(address, "crawlDomains", domains);
+        StringGenerator sg = new StringGenerator(5);
         PropertiesWriter.write(address, "crawlIntermediateStorage",
-                address.replaceAll("crawler4jconfig.properties", "crawler_data"));
+                address.replaceAll("crawler4jconfig.properties", "crawler_data/" + sg.nextString()));
 
         LoggerSetup.setup(ResourceFileUtil.getResourcePath("log.txt"), ResourceFileUtil.getResourcePath("log.html"));
         LoggerSetup.log4jSetup(ResourceFileUtil.getResourcePath("log4j.properties"),
@@ -81,8 +83,9 @@ public class crawler4jWS {
         }
         String address = ResourceFileUtil.getResourcePath("crawler4jconfig.properties");
         PropertiesWriter.write(address, "crawlDomains", domains);
+        StringGenerator sg = new StringGenerator(5);
         PropertiesWriter.write(address, "crawlIntermediateStorage",
-                address.replaceAll("crawler4jconfig.properties", "crawler_data"));
+                address.replaceAll("crawler4jconfig.properties", "crawler_data/" + sg.nextString()));
         PropertiesWriter.write(address, "filters", filter);
 
         LoggerSetup.setup(ResourceFileUtil.getResourcePath("log.txt"), ResourceFileUtil.getResourcePath("log.html"));
