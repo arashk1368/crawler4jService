@@ -37,73 +37,75 @@ public class crawler4jWS {
 
     @WebMethod(operationName = "crawl")
     public Set<String> crawl(@WebParam(name = "seeds") Set<String> seeds) throws IOException, Exception {
-        URLRepositoryService.getInstance().getRepository().clear();
-        String domains = "";
-        for (String seed : seeds) {
-            domains += seed + ",";
-        }
-        if (domains.length() > 0) {
-            domains = domains.substring(0, domains.length() - 1);
-        }
-        String address = ResourceFileUtil.getResourcePath("crawler4jconfig.properties");
-        PropertiesWriter.write(address, "crawlDomains", domains);
-        StringGenerator sg = new StringGenerator(5);
-        PropertiesWriter.write(address, "crawlIntermediateStorage",
-                address.replaceAll("crawler4jconfig.properties", "crawler_data/" + sg.nextString()));
-
-        LoggerSetup.setup(ResourceFileUtil.getResourcePath("log.txt"), ResourceFileUtil.getResourcePath("log.html"));
-        LoggerSetup.log4jSetup(ResourceFileUtil.getResourcePath("log4j.properties"),
-                ResourceFileUtil.getResourcePath("crawler4j.log"));
-
-        Crawler4jConfig config = PropertiesReader.loadCrawler4jConfig(address);
-        CrawlerController controller = new CrawlerController(config);
-        long startTime = System.currentTimeMillis();
-        LOGGER.log(Level.INFO, "Crawling Start");
-        controller.start();
-        long endTime = System.currentTimeMillis();
-        long totalTime = endTime - startTime;
-        String msg = "Crawling End in " + totalTime + "ms";
-        LOGGER.log(Level.INFO, msg);
-
-        Set outgoingUrls = URLRepositoryService.getInstance().getRepository().getUrls();
-        outgoingUrls.removeAll(seeds);
-        return outgoingUrls;
+        return seeds;
+//        URLRepositoryService.getInstance().getRepository().clear();
+//        String domains = "";
+//        for (String seed : seeds) {
+//            domains += seed + ",";
+//        }
+//        if (domains.length() > 0) {
+//            domains = domains.substring(0, domains.length() - 1);
+//        }
+//        String address = ResourceFileUtil.getResourcePath("crawler4jconfig.properties");
+//        PropertiesWriter.write(address, "crawlDomains", domains);
+//        StringGenerator sg = new StringGenerator(5);
+//        PropertiesWriter.write(address, "crawlIntermediateStorage",
+//                address.replaceAll("crawler4jconfig.properties", "crawler_data/" + sg.nextString()));
+//
+//        LoggerSetup.setup(ResourceFileUtil.getResourcePath("log.txt"), ResourceFileUtil.getResourcePath("log.html"));
+//        LoggerSetup.log4jSetup(ResourceFileUtil.getResourcePath("log4j.properties"),
+//                ResourceFileUtil.getResourcePath("crawler4j.log"));
+//
+//        Crawler4jConfig config = PropertiesReader.loadCrawler4jConfig(address);
+//        CrawlerController controller = new CrawlerController(config);
+//        long startTime = System.currentTimeMillis();
+//        LOGGER.log(Level.INFO, "Crawling Start");
+//        controller.start();
+//        long endTime = System.currentTimeMillis();
+//        long totalTime = endTime - startTime;
+//        String msg = "Crawling End in " + totalTime + "ms";
+//        LOGGER.log(Level.INFO, msg);
+//
+//        Set outgoingUrls = URLRepositoryService.getInstance().getRepository().getUrls();
+//        outgoingUrls.removeAll(seeds);
+//        return outgoingUrls;
     }
 
     @WebMethod(operationName = "filteredCrawl")
     public Set<String> filteredCrawl(@WebParam(name = "seeds") Set<String> seeds) throws IOException, Exception {
-        URLRepositoryService.getInstance().getRepository().clear();
-        String filter = ".*(\\.(css|js|bmp|gif|jpe?g|png|tiff?|mid|mp2|mp3|mp4|wav|avi|mov|mpeg|ram|m4v|pdf|rm|smil|wmv|swf|wma|zip|rar|gz))$";
-        String domains = "";
-        for (String seed : seeds) {
-            domains += seed + ",";
-        }
-        if (domains.length() > 0) {
-            domains = domains.substring(0, domains.length() - 1);
-        }
-        String address = ResourceFileUtil.getResourcePath("crawler4jconfig.properties");
-        PropertiesWriter.write(address, "crawlDomains", domains);
-        StringGenerator sg = new StringGenerator(5);
-        PropertiesWriter.write(address, "crawlIntermediateStorage",
-                address.replaceAll("crawler4jconfig.properties", "crawler_data/" + sg.nextString()));
-        PropertiesWriter.write(address, "filters", filter);
-
-        LoggerSetup.setup(ResourceFileUtil.getResourcePath("log.txt"), ResourceFileUtil.getResourcePath("log.html"));
-        LoggerSetup.log4jSetup(ResourceFileUtil.getResourcePath("log4j.properties"),
-                ResourceFileUtil.getResourcePath("crawler4j.log"));
-
-        Crawler4jConfig config = PropertiesReader.loadCrawler4jConfig(address);
-        CrawlerController controller = new CrawlerController(config);
-        long startTime = System.currentTimeMillis();
-        LOGGER.log(Level.INFO, "Crawling Start");
-        controller.start();
-        long endTime = System.currentTimeMillis();
-        long totalTime = endTime - startTime;
-        String msg = "Crawling End in " + totalTime + "ms";
-        LOGGER.log(Level.INFO, msg);
-
-        Set outgoingUrls = URLRepositoryService.getInstance().getRepository().getUrls();
-        outgoingUrls.removeAll(seeds);
-        return outgoingUrls;
+        return seeds;
+//        URLRepositoryService.getInstance().getRepository().clear();
+//        String filter = ".*(\\.(css|js|bmp|gif|jpe?g|png|tiff?|mid|mp2|mp3|mp4|wav|avi|mov|mpeg|ram|m4v|pdf|rm|smil|wmv|swf|wma|zip|rar|gz))$";
+//        String domains = "";
+//        for (String seed : seeds) {
+//            domains += seed + ",";
+//        }
+//        if (domains.length() > 0) {
+//            domains = domains.substring(0, domains.length() - 1);
+//        }
+//        String address = ResourceFileUtil.getResourcePath("crawler4jconfig.properties");
+//        PropertiesWriter.write(address, "crawlDomains", domains);
+//        StringGenerator sg = new StringGenerator(5);
+//        PropertiesWriter.write(address, "crawlIntermediateStorage",
+//                address.replaceAll("crawler4jconfig.properties", "crawler_data/" + sg.nextString()));
+//        PropertiesWriter.write(address, "filters", filter);
+//
+//        LoggerSetup.setup(ResourceFileUtil.getResourcePath("log.txt"), ResourceFileUtil.getResourcePath("log.html"));
+//        LoggerSetup.log4jSetup(ResourceFileUtil.getResourcePath("log4j.properties"),
+//                ResourceFileUtil.getResourcePath("crawler4j.log"));
+//
+//        Crawler4jConfig config = PropertiesReader.loadCrawler4jConfig(address);
+//        CrawlerController controller = new CrawlerController(config);
+//        long startTime = System.currentTimeMillis();
+//        LOGGER.log(Level.INFO, "Crawling Start");
+//        controller.start();
+//        long endTime = System.currentTimeMillis();
+//        long totalTime = endTime - startTime;
+//        String msg = "Crawling End in " + totalTime + "ms";
+//        LOGGER.log(Level.INFO, msg);
+//
+//        Set outgoingUrls = URLRepositoryService.getInstance().getRepository().getUrls();
+//        outgoingUrls.removeAll(seeds);
+//        return outgoingUrls;
     }
 }
